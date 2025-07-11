@@ -39,6 +39,7 @@ class Usuario
         $this->librosPrestados[$isbn] = $libro;
         return true;
     }
+    
     //funcion para devolver un libro prestado
     // si se pudo devolver devuelve true, false si no se pudo
     // recibe el isbn del libro a devolver
