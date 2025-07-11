@@ -56,24 +56,8 @@ class Biblioteca {
             return false;
         }
     }
-    //recibe un libro devuelto por un usuario
-    public function recibirLibro(int $idUsuario, string $isbn): bool
-    {
-        if (!isset($this->usuarios[$idUsuario]) || !isset($this->libros[$isbn])) {
-            echo "Libro o usuario no encontrado<br>";
-            return false;
-        }
-        $usuario = $this->usuarios[$idUsuario];
-        // el usuario intenta devolver el libro
-        if ($usuario->devolverLibro($isbn)) {
-            // el libro se marca como disponible en devolverLibro()
-            return true;
-        } else {
-            echo "El usuario no tiene este libro prestado<br>";
-            return false;
-        }
-    }
-    //metodo que devuelve un resumen de los prestamos
+
+
     public function resumenPrestamos(): array {
         $resumen = [];
         foreach ($this->usuarios as $usuario) {
