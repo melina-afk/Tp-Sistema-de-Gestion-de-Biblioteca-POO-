@@ -19,7 +19,7 @@
 - [Ejemplo de Uso (index.php)](#ejemplo-de-uso-indexphp)
 
 # Introducción
-Este proyecto simula un sistema de gestión de bibliotecas, diseñado para administrar el préstamo y la devolución de libros. Está implementado en PHP e implementa los principios fundamentales de la Programación Orientada a Objetos (POO), basada en cuatro clases principales: Biblioteca, Libro, Usuario, y un main (index.php) donde se simule la interacción entre los usuarios, los libros y la biblioteca.
+Este proyecto simula un sistema de gestión de bibliotecas, diseñado para administrar el préstamo y la devolución de libros. Está implementado en PHP e implementa los principios fundamentales de la Programación Orientada a Objetos (POO), basada en cuatro clases principales: Biblioteca, Libro, Usuario, y un main (index.php) donde se simula la interacción entre los usuarios, los libros y la biblioteca.
 En este sistema podremos encontrar:
 
 * Gestión de una colección de libros.
@@ -61,7 +61,7 @@ class Biblioteca {
 ```
 ## Clase Libro
 
-Modela un libro individual dentro de la biblioteca. Contiene información básica (título, autor, ISBN) y su estado de disponibilidad.
+Representa un libro dentro de la biblioteca. Guarda los datos principales del libro (título, autor, ISBN) y si está disponible para ser prestado o no.
 
 ### Atributos:
 
@@ -75,7 +75,7 @@ Modela un libro individual dentro de la biblioteca. Contiene información básic
 * `prestar()`: Cambia el estado a no disponible.
 * `devolver()`: Marca el libro como disponible.
 * `estaDisponible()`: Retorna un booleano indicando si el libro puede prestarse.
-* Métodos getters para obtener los datos del libro. (getInfo, getAutor, getTitulo, getIsbn)
+* Métodos getters para obtener los datos del libro. (getInfo, getAutor, getTitulo, getIsbn estos ultimos tres son para cuando se necesita algun dato en específico)
 
 ```
 <?php
@@ -137,7 +137,7 @@ Se crea una instancia de la biblioteca. Luego, se crean instancias de libros y u
 
  2. Carga de Libros
 
-Los objetos Libro se agregan a la biblioteca mediante agregarLibro(). La biblioteca mantiene todos los libros (prestados y disponibles).
+Los objetos Libro se agregan a la biblioteca mediante el método agregarLibro(). La biblioteca mantiene todos los libros (prestados y disponibles).
 
  3. Registro de Usuarios
 
@@ -145,7 +145,7 @@ Cada objeto Usuario se registra con registrarUsuario(), y se almacena según su 
 
  4. Préstamo de Libros
 
-Cuando un usuario solicita un préstamo, se llama a prestarLibro() en la biblioteca. Este método:
+Cuando un usuario solicita un préstamo, se llama al método a prestarLibro() en la biblioteca. Este método:
 
 * Verifica si el libro está disponible.
 * Si lo está, llama a pedirLibro() del usuario y a prestar() del libro.
@@ -156,7 +156,7 @@ Cuando un usuario solicita un préstamo, se llama a prestarLibro() en la bibliot
 El método recibirLibro() realiza la operación inversa:
 
 * Busca el libro en los préstamos del usuario.
-* Llama a devolverLibro() y marca el libro como disponible.
+* Llama a devolverLibro() y marca el libro como disponible nuevamente.
 
 6. Consulta de Disponibilidad
 
